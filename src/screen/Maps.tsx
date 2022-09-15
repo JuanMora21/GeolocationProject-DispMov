@@ -1,6 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView,{ Marker } from 'react-native-maps';
+
+const myHouse = {
+  latitude: 5.072358139108379,
+  longitude: -75.49975552978903,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+};
+
+const university = {
+  latitude: 5.067754748769989,
+  longitude: -75.5031112904149,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+};
 
 export const Maps = () => {
 
@@ -9,12 +23,23 @@ export const Maps = () => {
       <MapView 
         style={ styles.maps }
         initialRegion={{
-          latitude: 5.06889,
-          longitude: -75.51738,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitude: 5.067754748769989,
+          longitude: -75.5031112904149,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
         }}
-      />
+      >
+        <Marker 
+          coordinate={ university }
+          title="My university"
+          description="This is my university autonoma de manizales"
+        />
+        <Marker
+          coordinate={ myHouse }
+          title="My house"
+          description="This is my house"
+        />
+      </MapView>
     </View>
   )
 }
